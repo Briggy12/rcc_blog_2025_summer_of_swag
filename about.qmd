@@ -19,7 +19,7 @@ about:
 
 ##### **Yeah ok then I add this silly little comment here**
 
-###### My numbered list
+##### My numbered list
 
 1.  oney one
 
@@ -30,6 +30,7 @@ about:
 4.  then a link [here.](https://pointerpointer.com/ "Pointer Pointer, a beloved website that points at your mouse pointer.")
 
 ```{r}
+#| echo: false
 5+7
 install.packages("ggplot2")
 library(ggplot2)
