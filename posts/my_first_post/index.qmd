@@ -1,28 +1,16 @@
 ---
-title: "My First post"
+title: "The original              Starwalker (test)"
 author: "Briggy12"
 date: "2025-8-6"
 categories: [data_science,general]
 ---
 
-This is an example first post. Whatever you write here will appear inside your post.
+Here I'm trying out making a blog post using R and then porting it to the website connected to it. I'll take this opportunity to talk about Starwalker.
 
-It is possible to write lists:
+For whatever reason, the .png file will not properly preview in R, but it seems to generate OK on the website, so this is great news!
 
-1.  One
-2.  Two
-3.  Three
+### Who is the Original                  Starwalker?
 
-And make headers
+![](/images/OIP.png)
 
-## This is a second level heading
-
-You can include images, and many other kinds of content.
-
-If you are using the visual editor in Rstudio you can drag images onto the editor to insert them into the document. Otherwise, you need to place the image inside of the folder for this post, and then you can insert it to your post directly, like this:
-
-![The Original Starwalker](/images/OIP.webp)
-
-![The Original Starwalker](/images/OIP.webp)
-
-The first image in a blog post will also be used on the listings page.
+In the recently released (at the time of this post) game, DELTARUNE, the original Starwalker is a character you can meet in the first section of the game, Chapter 1. After being chased by a Starwalker-resembling character that will attack you with star-shaped bullet entities, you can walk back to the start of the path you were chased on and interact with Starwalker.
