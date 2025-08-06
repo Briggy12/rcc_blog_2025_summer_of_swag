@@ -34,5 +34,5 @@ about:
 5+7
 install.packages("ggplot2")
 library(ggplot2)
-ggplot(mpg, aes(x=hwy, y=cyl, color=cyl)) + geom_point(position="jitter", alpha=.5) + geom_smooth()
+ggplot(mpg, aes(x=hwy, y=cyl, color=cyl)) + geom_point(position="jitter", alpha=.5) + geom_smooth(method="loess")
 ```
