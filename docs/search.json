@@ -18,14 +18,14 @@
     "href": "posts/my_first_post/index.html#this-is-a-second-level-heading",
     "title": "My First post",
     "section": "This is a second level heading",
-    "text": "This is a second level heading\nYou can include images, and many other kinds of content.\nIf you are using the visual editor in Rstudio you can drag images onto the editor to insert them into the document. Otherwise, you need to place the image inside of the folder for this post, and then you can insert it to your post directly, like this:\n\nThe first image in a blog post will also be used on the listings page."
+    "text": "This is a second level heading\nYou can include images, and many other kinds of content.\nIf you are using the visual editor in Rstudio you can drag images onto the editor to insert them into the document. Otherwise, you need to place the image inside of the folder for this post, and then you can insert it to your post directly, like this:\n\n\n\nThe Original Starwalker\n\n\n\n\n\nThe Original Starwalker\n\n\nThe first image in a blog post will also be used on the listings page."
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "quartoCourseBlog",
     "section": "",
-    "text": "Below are some projects that I worked on using R. There’s a variety of projects from just playing around with the programming language to exploratory data analysis.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExample assignment\n\n\n\ngoals\n\ngeneral\n\n\n\n\n\n\n\n\n\nOct 21, 2022\n\n\nMatt Crump\n\n\n\n\n\n\n\n\n\n\n\n\nMy First post\n\n\n\ngoals\n\ngeneral\n\n\n\n\n\n\n\n\n\nOct 21, 2022\n\n\nMatt Crump\n\n\n\n\n\nNo matching items"
+    "text": "Below are some projects that I worked on using R. There’s a variety of projects from just playing around with the programming language to exploratory data analysis.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMy First post\n\n\n\ndata_science\n\ngeneral\n\n\n\n\n\n\n\n\n\nAug 6, 2025\n\n\nBriggy12\n\n\n\n\n\n\n\n\n\n\n\n\nExample assignment\n\n\n\ngoals\n\ngeneral\n\n\n\n\n\n\n\n\n\nOct 21, 2022\n\n\nMatt Crump\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/Example_assignment/index.html",
