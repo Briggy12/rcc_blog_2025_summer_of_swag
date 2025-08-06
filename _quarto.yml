@@ -3,17 +3,18 @@ project:
   output-dir: docs
 
 website:
-  title: "quartoCourseBlog"
+  title: "R Portfolio Summer 2025"
   navbar:
     right:
+      - portfolio.qmd
       - about.qmd
       - icon: github
-        href: https://github.com/CrumpLab/quartoCourseBlog
+        href: https://github.com/Briggy12
       - icon: twitter
         href: https://twitter.com/MattCrumpLab
 format:
   html:
-    theme: minty
+    theme: solar
     css: styles.css
 
 editor: visual
