@@ -4,7 +4,7 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "The content on this page is from about.qmd. Edit that file to change how this page looks.\n“About” pages are special quarto template pages, with multiple options: https://quarto.org/docs/websites/website-about.html.\nTry changing the template type from jolla to one of the other options for a different look and feel.\n–\n\nYeah im mr bruh\n\nYeah ok then I add this silly little comment here"
+    "text": "Yeah im mr bruh\n\nYeah ok then I add this silly little comment here\n\n\nMy numbered list\n\noney one\ntwoty two\nthreety three\nthen a link here.\n\n\n\n[1] 12\n\n\nInstalling package into '/cloud/lib/x86_64-pc-linux-gnu-library/4.5'\n(as 'lib' is unspecified)\n\n\n`geom_smooth()` using method = 'loess' and formula = 'y ~ x'\n\n\nWarning: The following aesthetics were dropped during statistical transformation:\ncolour.\nℹ This can happen when ggplot fails to infer the correct grouping structure in\n  the data.\nℹ Did you forget to specify a `group` aesthetic or to convert a numerical\n  variable into a factor?"
   },
   {
     "objectID": "posts/my_first_post/index.html",
