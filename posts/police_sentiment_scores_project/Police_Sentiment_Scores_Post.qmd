@@ -7,7 +7,11 @@ categories: [data_science,general]
 
 ## My Project
 
-I accessed the database from [data.gov](ttps://catalog.data.gov/dataset/police-sentiment-scores "Links to data.gov's webpage featuring the dataset used for this project") ([https://catalog.data.gov/dataset/police-sentiment-scores](ttps://catalog.data.gov/dataset/police-sentiment-scores)) which was originally sourced from [here](ttps://data.cityofchicago.org/Public-Safety/Police-Sentiment-Scores/28me-84fj/about_data "The original posting of the dataset "Police Sentiment Scores" for Chicago.") ([https://data.cityofchicago.org/Public-Safety/Police-Sentiment-Scores/28me-84fj/about_data](ttps://data.cityofchicago.org/Public-Safety/Police-Sentiment-Scores/28me-84fj/about_data)).
+Quick Links:
+
+-   [data.gov](ttps://catalog.data.gov/dataset/police-sentiment-scores "Links to data.gov's webpage featuring the dataset used for this project") page ([https://catalog.data.gov/dataset/police-sentiment-scores](ttps://catalog.data.gov/dataset/police-sentiment-scores))
+
+-   original source page [here](ttps://data.cityofchicago.org/Public-Safety/Police-Sentiment-Scores/28me-84fj/about_data "The original posting of the dataset "Police Sentiment Scores" for Chicago.") ([https://data.cityofchicago.org/Public-Safety/Police-Sentiment-Scores/28me-84fj/about_data](ttps://data.cityofchicago.org/Public-Safety/Police-Sentiment-Scores/28me-84fj/about_data)).
 
 ### yea
 
@@ -15,7 +19,9 @@ and then here I'll give a description of the project
 
 ### Perhaps
 
-here I can elaborate on what kind of dataset I was looking for, my questions/hypothesis, how I intend to model it?
+When looking for a dataset, I wanted to dive into something more political and within my interests. I found this dataset on [data.gov](ttps://catalog.data.gov/dataset/police-sentiment-scores "Links to data.gov's webpage featuring the dataset used for this project") ([https://catalog.data.gov/dataset/police-sentiment-scores](ttps://catalog.data.gov/dataset/police-sentiment-scores)) which showed data on the "trust" of participants with the police. The "trust" was a rating of 1-10 from a variety of demographics spanning 22 districts within Chicago.
+
+Mention interest and also survey methodology
 
 ### Then the actual nitty-gritty.
 
@@ -24,7 +30,12 @@ So here I'll give a breakdown of my first question and my process for going abou
 Ideally, I'd like 2-3 major questions and I'll answer them all here in a similar format under this header.
 
 ```{r}
+install.packages("ggplot2")
+library(ggplot2)
 
+PSS <- read.csv("Police_Sentiment_Scores.csv")
+
+ggplot(data = PSS, aes(x=T_SEX_MALE)) + geom_histogram()
 ```
 
 ### Maybe then the closer/conclusion?

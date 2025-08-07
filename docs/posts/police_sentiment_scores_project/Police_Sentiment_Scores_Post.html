@@ -22,6 +22,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -162,19 +197,46 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="my-project" class="level2">
 <h2 class="anchored" data-anchor-id="my-project">My Project</h2>
-<p>I accessed the database from <a href="ttps://catalog.data.gov/dataset/police-sentiment-scores" title="Links to data.gov's webpage featuring the dataset used for this project">data.gov</a> (<a href="ttps://catalog.data.gov/dataset/police-sentiment-scores">https://catalog.data.gov/dataset/police-sentiment-scores</a>) which was originally sourced from <a href="ttps://data.cityofchicago.org/Public-Safety/Police-Sentiment-Scores/28me-84fj/about_data" title="The original posting of the dataset &quot;Police Sentiment Scores&quot; for Chicago.">here</a> (<a href="ttps://data.cityofchicago.org/Public-Safety/Police-Sentiment-Scores/28me-84fj/about_data">https://data.cityofchicago.org/Public-Safety/Police-Sentiment-Scores/28me-84fj/about_data</a>).</p>
+<p>Quick Links:</p>
+<ul>
+<li><p><a href="ttps://catalog.data.gov/dataset/police-sentiment-scores" title="Links to data.gov's webpage featuring the dataset used for this project">data.gov</a> page (<a href="ttps://catalog.data.gov/dataset/police-sentiment-scores">https://catalog.data.gov/dataset/police-sentiment-scores</a>)</p></li>
+<li><p>original source page <a href="ttps://data.cityofchicago.org/Public-Safety/Police-Sentiment-Scores/28me-84fj/about_data" title="The original posting of the dataset &quot;Police Sentiment Scores&quot; for Chicago.">here</a> (<a href="ttps://data.cityofchicago.org/Public-Safety/Police-Sentiment-Scores/28me-84fj/about_data">https://data.cityofchicago.org/Public-Safety/Police-Sentiment-Scores/28me-84fj/about_data</a>).</p></li>
+</ul>
 <section id="yea" class="level3">
 <h3 class="anchored" data-anchor-id="yea">yea</h3>
 <p>and then here I’ll give a description of the project</p>
 </section>
 <section id="perhaps" class="level3">
 <h3 class="anchored" data-anchor-id="perhaps">Perhaps</h3>
-<p>here I can elaborate on what kind of dataset I was looking for, my questions/hypothesis, how I intend to model it?</p>
+<p>When looking for a dataset, I wanted to dive into something more political and within my interests. I found this dataset on <a href="ttps://catalog.data.gov/dataset/police-sentiment-scores" title="Links to data.gov's webpage featuring the dataset used for this project">data.gov</a> (<a href="ttps://catalog.data.gov/dataset/police-sentiment-scores">https://catalog.data.gov/dataset/police-sentiment-scores</a>) which showed data on the “trust” of participants with the police. The “trust” was a rating of 1-10 from a variety of demographics spanning 22 districts within Chicago.</p>
+<p>Mention interest and also survey methodology</p>
 </section>
 <section id="then-the-actual-nitty-gritty." class="level3">
 <h3 class="anchored" data-anchor-id="then-the-actual-nitty-gritty.">Then the actual nitty-gritty.</h3>
 <p>So here I’ll give a breakdown of my first question and my process for going about answering it. Underneath, probably I will caption the code for accessibility and to have a running record of what I did. It also makes it more accessible.</p>
 <p>Ideally, I’d like 2-3 major questions and I’ll answer them all here in a similar format under this header.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"ggplot2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Installing package into '/cloud/lib/x86_64-pc-linux-gnu-library/4.5'
+(as 'lib' is unspecified)</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>PSS <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"Police_Sentiment_Scores.csv"</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> PSS, <span class="fu">aes</span>(<span class="at">x=</span>T_SEX_MALE)) <span class="sc">+</span> <span class="fu">geom_histogram</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Police_Sentiment_Scores_Post_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
 <section id="maybe-then-the-closerconclusion" class="level3">
 <h3 class="anchored" data-anchor-id="maybe-then-the-closerconclusion">Maybe then the closer/conclusion?</h3>
