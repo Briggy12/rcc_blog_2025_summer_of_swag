@@ -4,7 +4,7 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "Yeah im mr bruh\n\nYeah ok then I add this silly little comment here\n\n\nMy numbered list\n\noney one\ntwoty two\nthreety three\nthen a link here.\n\n\n\n[1] 12\n\n\nInstalling package into '/cloud/lib/x86_64-pc-linux-gnu-library/4.5'\n(as 'lib' is unspecified)\n\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\nWarning: The following aesthetics were dropped during statistical transformation:\ncolour.\nℹ This can happen when ggplot fails to infer the correct grouping structure in\n  the data.\nℹ Did you forget to specify a `group` aesthetic or to convert a numerical\n  variable into a factor?"
+    "text": "Yeah im mr bruh\n\nYeah ok then I add this silly little comment here\n\n\nMy numbered list\n\noney one\ntwoty two\nthreety three\nthen a link here.\n\n\n\nInstalling package into '/cloud/lib/x86_64-pc-linux-gnu-library/4.5'\n(as 'lib' is unspecified)\n\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\nWarning: The following aesthetics were dropped during statistical transformation:\ncolour.\nℹ This can happen when ggplot fails to infer the correct grouping structure in\n  the data.\nℹ Did you forget to specify a `group` aesthetic or to convert a numerical\n  variable into a factor?"
   },
   {
     "objectID": "posts/my_first_post/index.html",
@@ -25,7 +25,7 @@
     "href": "index.html",
     "title": "quartoCourseBlog",
     "section": "",
-    "text": "Below are some projects that I worked on using R. There’s a variety of projects from just playing around with the programming language to exploratory data analysis.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nStarwalker (test)\n\n\n\ndata_science\n\ngeneral\n\n\n\n\n\n\n\n\n\nAug 6, 2025\n\n\nBriggy12\n\n\n\n\n\n\n\n\n\n\n\n\nExample assignment\n\n\n\ngoals\n\ngeneral\n\n\n\n\n\n\n\n\n\nOct 21, 2022\n\n\nMatt Crump\n\n\n\n\n\nNo matching items"
+    "text": "Below are some projects that I worked on using R. There’s a variety of projects from just playing around with the programming language to exploratory data analysis.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPolice Sentiment Scores | City of Chicago Dataset Project\n\n\n\ndata_science\n\ngeneral\n\n\n\n\n\n\n\n\n\nAug 7, 2025\n\n\nBriggy12\n\n\n\n\n\n\n\n\n\n\n\n\nThe original Starwalker (test)\n\n\n\ndata_science\n\ngeneral\n\n\n\n\n\n\n\n\n\nAug 6, 2025\n\n\nBriggy12\n\n\n\n\n\n\n\n\n\n\n\n\nExample assignment\n\n\n\ngoals\n\ngeneral\n\n\n\n\n\n\n\n\n\nOct 21, 2022\n\n\nMatt Crump\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/Example_assignment/index.html",
@@ -124,5 +124,33 @@
     "title": "Using this quarto course blog template",
     "section": "",
     "text": "See this growing list of quarto resources for much, much more:\nhttps://github.com/mcanouil/awesome-quarto"
+  },
+  {
+    "objectID": "posts/police_sentiment_scores_project/Police_Sentiment_Scores_Post.html",
+    "href": "posts/police_sentiment_scores_project/Police_Sentiment_Scores_Post.html",
+    "title": "Police Sentiment Scores | City of Chicago Dataset Project",
+    "section": "",
+    "text": "I accessed the database from data.gov (https://catalog.data.gov/dataset/police-sentiment-scores) which was originally sourced from here (https://data.cityofchicago.org/Public-Safety/Police-Sentiment-Scores/28me-84fj/about_data).\n\n\nand then here I’ll give a description of the project\n\n\n\nhere I can elaborate on what kind of dataset I was looking for, my questions/hypothesis, how I intend to model it?\n\n\n\nSo here I’ll give a breakdown of my first question and my process for going about answering it. Underneath, probably I will caption the code for accessibility and to have a running record of what I did. It also makes it more accessible.\nIdeally, I’d like 2-3 major questions and I’ll answer them all here in a similar format under this header.\n\n\n\nI want to check back with my previous workshops that involved EDA and see what the format was there to make this more professional and mirror the academia process for it. It makes it more accessible and preps me for whatever’s to come in the future that does this."
+  },
+  {
+    "objectID": "posts/police_sentiment_scores_project/Police_Sentiment_Scores_Post.html#my-project",
+    "href": "posts/police_sentiment_scores_project/Police_Sentiment_Scores_Post.html#my-project",
+    "title": "Police Sentiment Scores | City of Chicago Dataset Project",
+    "section": "",
+    "text": "I accessed the database from data.gov (https://catalog.data.gov/dataset/police-sentiment-scores) which was originally sourced from here (https://data.cityofchicago.org/Public-Safety/Police-Sentiment-Scores/28me-84fj/about_data).\n\n\nand then here I’ll give a description of the project\n\n\n\nhere I can elaborate on what kind of dataset I was looking for, my questions/hypothesis, how I intend to model it?\n\n\n\nSo here I’ll give a breakdown of my first question and my process for going about answering it. Underneath, probably I will caption the code for accessibility and to have a running record of what I did. It also makes it more accessible.\nIdeally, I’d like 2-3 major questions and I’ll answer them all here in a similar format under this header.\n\n\n\nI want to check back with my previous workshops that involved EDA and see what the format was there to make this more professional and mirror the academia process for it. It makes it more accessible and preps me for whatever’s to come in the future that does this."
+  },
+  {
+    "objectID": "posts/my_first_post/starwalker.html",
+    "href": "posts/my_first_post/starwalker.html",
+    "title": "The original Starwalker (test)",
+    "section": "",
+    "text": "Here I’m trying out making a blog post using R and then porting it to the website connected to it. I’ll take this opportunity to talk about Starwalker.\nFor whatever reason, the .png file will not properly preview in R, but it seems to generate OK on the website, so this is great news!\n\nWho is the Original Starwalker?\n\nIn the recently released (at the time of this post) game, DELTARUNE, the original Starwalker is a character you can meet in the first section of the game, Chapter 1. After being chased by a Starwalker-resembling character that will attack you with star-shaped bullet entities, you can walk back to the start of the path you were chased on and interact with Starwalker."
+  },
+  {
+    "objectID": "portfolio.html",
+    "href": "portfolio.html",
+    "title": "Portfolio",
+    "section": "",
+    "text": "Here maybe I can put a short description of the workshop, but I may do that after I present tomorrow because I don’t need it just yet."
   }
 ]
