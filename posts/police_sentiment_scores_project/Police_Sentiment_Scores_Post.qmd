@@ -43,7 +43,6 @@ install.packages("ggplot2")
 library(ggplot2)
 
 PSS <- read.csv("Police_Sentiment_Scores.csv")
-print()
 
 #lets make a general count of what participants we have?
 
@@ -76,12 +75,12 @@ library(ggridges)
 
 #change label names vv add to density below there
 #prettier_labels_PSS <- PSS |>
-  mutate(
-    Student_Athlete_Code_Better = case_when(
-      Student_Athlete_Code == TRUE ~ "Student Athlete", 
-      Student_Athlete_Code == FALSE ~ "Non-Student Athlete"
-    )
-  )
+#  mutate(
+#    Student_Athlete_Code_Better = case_when(
+#      Student_Athlete_Code == TRUE ~ "Student Athlete", 
+#      Student_Athlete_Code == FALSE ~ "Non-Student Athlete"
+#    )
+#  )
 
 ggplot(
   data = PSS,

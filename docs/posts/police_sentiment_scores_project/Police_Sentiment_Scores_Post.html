@@ -199,9 +199,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="my-project">My Project</h2>
 <p>Quick Links:</p>
 <ul>
-<li><p><a href="ttps://catalog.data.gov/dataset/police-sentiment-scores" title="Links to data.gov's webpage featuring the dataset used for this project">data.gov</a> page (<a href="https://catalog.data.gov/dataset/police-sentiment-scores" class="uri">https://catalog.data.gov/dataset/police-sentiment-scores</a>)</p></li>
-<li><p>original source page <a href="ttps://data.cityofchicago.org/Public-Safety/Police-Sentiment-Scores/28me-84fj/about_data" title="The original posting of the dataset &quot;Police Sentiment Scores&quot; for Chicago.">here</a> (<a href="https://data.cityofchicago.org/Public-Safety/Police-Sentiment-Scores/28me-84fj/about_data" class="uri">https://data.cityofchicago.org/Public-Safety/Police-Sentiment-Scores/28me-84fj/about_data</a>).</p></li>
-<li><p><a href="https://www.chicagopolice.org/statistics-data/data-dashboards/sentiment-dashboard/">Chicago Police Department’s Sentiment Dashboard</a> (<a href="https://www.chicagopolice.org/statistics-data/data-dashboards/sentiment-dashboard/" class="uri">https://www.chicagopolice.org/statistics-data/data-dashboards/sentiment-dashboard/</a>)</p></li>
+<li><a href="ttps://catalog.data.gov/dataset/police-sentiment-scores" title="Links to data.gov's webpage featuring the dataset used for this project">data.gov</a> page (<a href="https://catalog.data.gov/dataset/police-sentiment-scores" class="uri">https://catalog.data.gov/dataset/police-sentiment-scores</a>)
+<ul>
+<li>This is where I originally retrieved the data set from.</li>
+</ul></li>
+<li>Original posting from the <a href="https://data.cityofchicago.org/Public-Safety/Police-Sentiment-Scores/28me-84fj/about_data">Chicago Data Portal</a> (<a href="https://data.cityofchicago.org/Public-Safety/Police-Sentiment-Scores/28me-84fj/about_data" class="uri">https://data.cityofchicago.org/Public-Safety/Police-Sentiment-Scores/28me-84fj/about_data</a>)
+<ul>
+<li>Here’s some more information on the data and explanation of variables.</li>
+</ul></li>
+<li>Chicago Police Department’s <a href="https://www.chicagopolice.org/statistics-data/data-dashboards/sentiment-dashboard/">Sentiment Dashboard</a> (<a href="https://www.chicagopolice.org/statistics-data/data-dashboards/sentiment-dashboard/" class="uri">https://www.chicagopolice.org/statistics-data/data-dashboards/sentiment-dashboard/</a>)
+<ul>
+<li>Here’s CPD’s report on the data. On the site, they’ve also posted some breakdowns and graphic models of their own on the same data.</li>
+</ul></li>
 </ul>
 <section id="introduction" class="level3">
 <h3 class="anchored" data-anchor-id="introduction">Introduction</h3>
@@ -215,14 +224,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="research-questions" class="level3">
 <h3 class="anchored" data-anchor-id="research-questions">Research Questions</h3>
 <ul>
-<li><p>What area is most trustworthy of CPD?</p></li>
 <li></li>
+<li><p>What area is most trustworthy of CPD?</p></li>
+<li><p>f</p></li>
 </ul>
 </section>
-<section id="then-the-actual-nitty-gritty." class="level3">
-<h3 class="anchored" data-anchor-id="then-the-actual-nitty-gritty.">Then the actual nitty-gritty.</h3>
-<p>So here I’ll give a breakdown of my first question and my process for going about answering it. Underneath, probably I will caption the code for accessibility and to have a running record of what I did. It also makes it more accessible.</p>
-<p>Ideally, I’d like 2-3 major questions and I’ll answer them all here in a similar format under this header.</p>
+<section id="eda-exploratory-data-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="eda-exploratory-data-analysis">EDA (Exploratory Data Analysis)</h3>
 <p>Below, you’ll find the code that I ran in R to create models from this data set.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"ggplot2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -270,24 +278,72 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>So let’s check by area.</p>
 <p>In the dataset, there’s 9 categorizations of the reported area (each of these are better explained in <a href="https://www.chicagopolice.org/statistics-data/data-dashboards/sentiment-dashboard/">CPD’s Sentiment Dashboard</a>):</p>
 <ol type="1">
-<li>“N/A”, or no area reported</li>
-<li>“Area 1”, meaning McKinley Park, Chicago Lawn, Ashburn, Clearing, Woodlawn, South Shore, Oakland, etc.</li>
+<li><strong>“N/A”</strong>, or no area reported</li>
+<li><strong>“Area 1”</strong>, meaning McKinley Park, Chicago Lawn, Ashburn, Clearing, Woodlawn, South Shore, Oakland, etc.</li>
 </ol>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggridges)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> PSS,</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">y =</span> AREA)</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span> ggridges<span class="sc">::</span><span class="fu">geom_density_ridges</span>(</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> S_RACE_WHITE),</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">alpha =</span> <span class="fl">0.3</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span> ggridges<span class="sc">::</span><span class="fu">geom_density_ridges</span>(</span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> S_RACE_HISPANIC),</span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">alpha =</span> <span class="fl">0.3</span></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span> ggridges<span class="sc">::</span><span class="fu">geom_density_ridges</span>(</span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> S_RACE_AFRICAN_AMERICAN),</span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">color =</span> <span class="st">"green"</span>, <span class="at">alpha =</span> <span class="fl">0.3</span></span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span>AREA)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">#change label names vv add to density below there</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">#prettier_labels_PSS &lt;- PSS |&gt;</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co">#  mutate(</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co">#    Student_Athlete_Code_Better = case_when(</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co">#      Student_Athlete_Code == TRUE ~ "Student Athlete", </span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co">#      Student_Athlete_Code == FALSE ~ "Non-Student Athlete"</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co">#    )</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co">#  )</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> PSS,</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">y =</span> AREA)</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span> ggridges<span class="sc">::</span><span class="fu">geom_density_ridges</span>(</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> S_RACE_WHITE),</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">fill=</span><span class="st">"red"</span>, <span class="at">alpha =</span> <span class="fl">0.3</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span> ggridges<span class="sc">::</span><span class="fu">geom_density_ridges</span>(</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> S_RACE_AFRICAN_AMERICAN),</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">fill=</span><span class="st">"blue"</span>, <span class="at">alpha =</span> <span class="fl">0.3</span></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span> <span class="fu">labs</span>(</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Trust Level for Police"</span>,</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Black vs White population"</span>,</span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Trust Level (1-100)"</span>,</span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Area"</span>,</span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Picking joint bandwidth of 1.51</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Picking joint bandwidth of 1.66</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Police_Sentiment_Scores_Post_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> PSS, <span class="fu">aes</span>(<span class="at">x=</span>S_RACE_WHITE, <span class="at">color=</span>AREA, <span class="at">fill=</span>AREA)) <span class="sc">+</span> <span class="fu">geom_density</span>(<span class="at">alpha=</span>.<span class="dv">75</span>) <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span>AREA)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Police_Sentiment_Scores_Post_files/figure-html/unnamed-chunk-2-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> PSS,</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">y =</span> AREA)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span> ggridges<span class="sc">::</span><span class="fu">geom_density_ridges</span>(</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> S_RACE_WHITE),</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">alpha =</span> <span class="fl">0.3</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span> ggridges<span class="sc">::</span><span class="fu">geom_density_ridges</span>(</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> S_RACE_HISPANIC),</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">alpha =</span> <span class="fl">0.3</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span> ggridges<span class="sc">::</span><span class="fu">geom_density_ridges</span>(</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> S_RACE_AFRICAN_AMERICAN),</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">color =</span> <span class="st">"green"</span>, <span class="at">alpha =</span> <span class="fl">0.3</span></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span>AREA)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Picking joint bandwidth of 1.32</code></pre>
 </div>
@@ -372,22 +428,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Police_Sentiment_Scores_Post_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> PSS, <span class="fu">aes</span>(<span class="at">x=</span>S_RACE_WHITE, <span class="at">color=</span>AREA, <span class="at">fill=</span>AREA)) <span class="sc">+</span> <span class="fu">geom_density</span>(<span class="at">alpha=</span>.<span class="dv">75</span>) <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span>AREA)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="Police_Sentiment_Scores_Post_files/figure-html/unnamed-chunk-2-2.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="Police_Sentiment_Scores_Post_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 </section>
-<section id="maybe-then-the-closerconclusion" class="level3">
-<h3 class="anchored" data-anchor-id="maybe-then-the-closerconclusion">Maybe then the closer/conclusion?</h3>
+<section id="conclusion" class="level3">
+<h3 class="anchored" data-anchor-id="conclusion">Conclusion</h3>
 <p>I want to check back with my previous workshops that involved EDA and see what the format was there to make this more professional and mirror the academia process for it. It makes it more accessible and preps me for whatever’s to come in the future that does this.</p>
 
 
