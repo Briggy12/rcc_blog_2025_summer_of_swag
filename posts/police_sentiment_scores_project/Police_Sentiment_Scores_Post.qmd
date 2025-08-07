@@ -15,15 +15,21 @@ Quick Links:
 
 -   [Chicago Police Department's Sentiment Dashboard](https://www.chicagopolice.org/statistics-data/data-dashboards/sentiment-dashboard/) (<https://www.chicagopolice.org/statistics-data/data-dashboards/sentiment-dashboard/>)
 
-### yea
+### Introduction
 
 and then here I'll give a description of the project
 
-### Perhaps
+### Explanation of Data/Methods
 
 When looking for a dataset, I wanted to dive into something more political and within my interests. I found this dataset on [data.gov](ttps://catalog.data.gov/dataset/police-sentiment-scores "Links to data.gov's webpage featuring the dataset used for this project") ([https://catalog.data.gov/dataset/police-sentiment-scores](ttps://catalog.data.gov/dataset/police-sentiment-scores)) which showed data on the "trust" of participants with the police. The "trust" was a rating of 1-10 from a variety of demographics spanning 22 districts within Chicago.
 
 Mention interest and also survey methodology
+
+### Research Questions
+
+-   What area is most trustworthy of CPD?
+
+-   
 
 ### Then the actual nitty-gritty.
 
@@ -49,10 +55,39 @@ ggplot(data = PSS, aes(x=T_SEX_FEMALE, color=AREA, fill=AREA)) + geom_bar(positi
 # ehhh this one kinda sucks because they're independant variables
 ggplot(data = PSS, aes(x=S_RACE_WHITE, y=AREA, color=AREA, fill=AREA)) + geom_point(size=.5, alpha=.5, position="jitter")
 
-ggplot(data = PSS, aes(x=S_RACE_WHITE, color=AREA, fill=AREA)) + geom_density(alpha=.75) + facet_wrap(~AREA)
 
 ## maybe if I want to make a "map" of where people live, try sorting a count-based graph with each of the race categorizations? Therefore omiting their values and just counting the occurances. Could probably make a new variable using the count() function
 
+#use tidyverse gather()
+
+```
+
+So let's check by area.
+
+In the dataset, there's 9 categorizations of the reported area (each of these are better explained in [CPD's Sentiment Dashboard](https://www.chicagopolice.org/statistics-data/data-dashboards/sentiment-dashboard/)):
+
+1.  "N/A", or no area reported
+2.  "Area 1", meaning McKinley Park, Chicago Lawn, Ashburn, Clearing, Woodlawn, South Shore, Oakland, etc.
+
+```{r}
+#| fig-height: 6
+
+library(ggridges)
+ggplot(
+  data = PSS,
+  mapping = aes(y = AREA)
+) + ggridges::geom_density_ridges(
+  mapping = aes(x = S_RACE_WHITE),
+  color = "red", alpha = 0.3
+) + ggridges::geom_density_ridges(
+  mapping = aes(x = S_RACE_HISPANIC),
+  color = "blue", alpha = 0.3
+) + ggridges::geom_density_ridges(
+  mapping = aes(x = S_RACE_AFRICAN_AMERICAN),
+  color = "green", alpha = 0.3
+) + facet_wrap(~AREA)
+
+ggplot(data = PSS, aes(x=S_RACE_WHITE, color=AREA, fill=AREA)) + geom_density(alpha=.75) + facet_wrap(~AREA)
 ```
 
 ### Maybe then the closer/conclusion?
