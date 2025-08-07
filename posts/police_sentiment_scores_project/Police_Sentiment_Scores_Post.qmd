@@ -51,6 +51,8 @@ ggplot(data = PSS, aes(x=S_RACE_WHITE, y=AREA, color=AREA, fill=AREA)) + geom_po
 
 ggplot(data = PSS, aes(x=S_RACE_WHITE, color=AREA, fill=AREA)) + geom_density(alpha=.75) + facet_wrap(~AREA)
 
+## maybe if I want to make a "map" of where people live, try sorting a count-based graph with each of the race categorizations? Therefore omiting their values and just counting the occurances. Could probably make a new variable using the count() function
+
 ```
 
 ### Maybe then the closer/conclusion?
