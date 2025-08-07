@@ -23,6 +23,10 @@ So here I'll give a breakdown of my first question and my process for going abou
 
 Ideally, I'd like 2-3 major questions and I'll answer them all here in a similar format under this header.
 
+```{r}
+
+```
+
 ### Maybe then the closer/conclusion?
 
 I want to check back with my previous workshops that involved EDA and see what the format was there to make this more professional and mirror the academia process for it. It makes it more accessible and preps me for whatever's to come in the future that does this.

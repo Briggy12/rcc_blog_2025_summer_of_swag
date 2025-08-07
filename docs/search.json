@@ -23,7 +23,7 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "quartoCourseBlog",
+    "title": "Project Posts",
     "section": "",
     "text": "Below are some projects that I worked on using R. There’s a variety of projects from just playing around with the programming language to exploratory data analysis.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPolice Sentiment Scores | City of Chicago Dataset Project\n\n\n\ndata_science\n\ngeneral\n\n\n\n\n\n\n\n\n\nAug 7, 2025\n\n\nBriggy12\n\n\n\n\n\n\n\n\n\n\n\n\nThe original Starwalker (test)\n\n\n\ndata_science\n\ngeneral\n\n\n\n\n\n\n\n\n\nAug 6, 2025\n\n\nBriggy12\n\n\n\n\n\n\n\n\n\n\n\n\nExample assignment\n\n\n\ngoals\n\ngeneral\n\n\n\n\n\n\n\n\n\nOct 21, 2022\n\n\nMatt Crump\n\n\n\n\n\nNo matching items"
   },
@@ -152,5 +152,19 @@
     "title": "Portfolio",
     "section": "",
     "text": "Here maybe I can put a short description of the workshop, but I may do that after I present tomorrow because I don’t need it just yet."
+  },
+  {
+    "objectID": "posts/Example_assignment/Example_assignment.html",
+    "href": "posts/Example_assignment/Example_assignment.html",
+    "title": "Example assignment",
+    "section": "",
+    "text": "This assignment engages you in the process of introspection. Your task is to use introspection to evaluate and describe your own mental imagery abilities. Attempt to answer the following kinds of questions. What is your mental imagery like? Do you have mental imagery for different kinds of senses? Is your mental imagery vivid and life-like or very different from normal perception? How would you describe your mental imagery?\nYou should write a minimum of 250 words, but feel free to write more. Submit your document on blackboard by the due date."
+  },
+  {
+    "objectID": "posts/Example_assignment/Example_assignment.html#my-mental-imagery",
+    "href": "posts/Example_assignment/Example_assignment.html#my-mental-imagery",
+    "title": "Example assignment",
+    "section": "My mental imagery",
+    "text": "My mental imagery\nMy mental imagery is like…"
   }
 ]
