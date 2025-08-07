@@ -10,9 +10,7 @@ categories: [data_science,general]
 Quick Links:
 
 -   [data.gov](ttps://catalog.data.gov/dataset/police-sentiment-scores "Links to data.gov's webpage featuring the dataset used for this project") page (<https://catalog.data.gov/dataset/police-sentiment-scores>)
-
 -   Original posting from the [Chicago Data Portal](https://data.cityofchicago.org/Public-Safety/Police-Sentiment-Scores/28me-84fj/about_data) (<https://data.cityofchicago.org/Public-Safety/Police-Sentiment-Scores/28me-84fj/about_data>).
-
 -   Chicago Police Department's [Sentiment Dashboard](https://www.chicagopolice.org/statistics-data/data-dashboards/sentiment-dashboard/) (<https://www.chicagopolice.org/statistics-data/data-dashboards/sentiment-dashboard/>)
 
 ### Introduction
@@ -28,10 +26,8 @@ Mention interest and also survey methodology
 ### Research Questions
 
 -   
-
 -   What area is most trustworthy of CPD?
-
--   
+-   f
 
 ### EDA (Exploratory Data Analysis)
 
@@ -65,8 +61,8 @@ So let's check by area.
 
 In the dataset, there's 9 categorizations of the reported area (each of these are better explained in [CPD's Sentiment Dashboard](https://www.chicagopolice.org/statistics-data/data-dashboards/sentiment-dashboard/)):
 
-1.  "N/A", or no area reported
-2.  "Area 1", meaning McKinley Park, Chicago Lawn, Ashburn, Clearing, Woodlawn, South Shore, Oakland, etc.
+1.  **"N/A"**, or no area reported
+2.  **"Area 1"**, meaning McKinley Park, Chicago Lawn, Ashburn, Clearing, Woodlawn, South Shore, Oakland, etc.
 
 ```{r}
 #| fig-height: 6
