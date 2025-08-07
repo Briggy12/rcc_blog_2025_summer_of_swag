@@ -49,9 +49,7 @@ ggplot(data = PSS, aes(x=T_SEX_FEMALE, color=AREA, fill=AREA)) + geom_bar(positi
 # ehhh this one kinda sucks because they're independant variables
 ggplot(data = PSS, aes(x=S_RACE_WHITE, y=AREA, color=AREA, fill=AREA)) + geom_point(size=.5, alpha=.5, position="jitter")
 
-ggplot(data = PSS, aes(x=S_RACE_WHITE, color=AREA, fill=AREA)) + geom_density() + facet_wrap(~AREA)
-
-
+ggplot(data = PSS, aes(x=S_RACE_WHITE, color=AREA, fill=AREA)) + geom_density(alpha=.75) + facet_wrap(~AREA)
 
 ```
 
