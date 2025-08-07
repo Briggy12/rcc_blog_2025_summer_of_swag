@@ -29,6 +29,8 @@ So here I'll give a breakdown of my first question and my process for going abou
 
 Ideally, I'd like 2-3 major questions and I'll answer them all here in a similar format under this header.
 
+Below, you'll find the code that I ran in R to create models from this data set.
+
 ```{r}
 install.packages("ggplot2")
 library(ggplot2)
