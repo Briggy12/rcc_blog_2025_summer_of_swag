@@ -10,8 +10,11 @@ categories: [data_science,general]
 Quick Links:
 
 -   [data.gov](ttps://catalog.data.gov/dataset/police-sentiment-scores "Links to data.gov's webpage featuring the dataset used for this project") page (<https://catalog.data.gov/dataset/police-sentiment-scores>)
--   Original posting from the [Chicago Data Portal](https://data.cityofchicago.org/Public-Safety/Police-Sentiment-Scores/28me-84fj/about_data) (<https://data.cityofchicago.org/Public-Safety/Police-Sentiment-Scores/28me-84fj/about_data>).
+    -   This is where I originally retrieved the data set from.
+-   Original posting from the [Chicago Data Portal](https://data.cityofchicago.org/Public-Safety/Police-Sentiment-Scores/28me-84fj/about_data) (<https://data.cityofchicago.org/Public-Safety/Police-Sentiment-Scores/28me-84fj/about_data>)
+    -   Here's some more information on the data and explanation of variables.
 -   Chicago Police Department's [Sentiment Dashboard](https://www.chicagopolice.org/statistics-data/data-dashboards/sentiment-dashboard/) (<https://www.chicagopolice.org/statistics-data/data-dashboards/sentiment-dashboard/>)
+    -   Here's CPD's report on the data. On the site, they've also posted some breakdowns and graphic models of their own on the same data.
 
 ### Introduction
 
@@ -69,7 +72,7 @@ In the dataset, there's 9 categorizations of the reported area (each of these ar
 
 library(ggridges)
 
-#change label names vv
+#change label names vv add to density below there
 #prettier_labels_PSS <- PSS |>
   mutate(
     Student_Athlete_Code_Better = case_when(
@@ -88,8 +91,8 @@ ggplot(
   mapping = aes(x = S_RACE_AFRICAN_AMERICAN),
   color = "blue", fill="blue", alpha = 0.3
 ) + labs(
-    title = "Trust",
-    subtitle = "White vs Black population",
+    title = "Trust Level for Police",
+    subtitle = "Black vs White population",
     x = "Trust Level (1-100)",
     y = "Area",
     )
