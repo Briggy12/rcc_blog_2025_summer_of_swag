@@ -1,4 +1,6 @@
 ---
-title: "New Navigation Pane"
+title: "Portfolio"
 format: html
 ---
+
+Here maybe I can put a short description of the workshop, but I may do that after I present tomorrow because I don't need it just yet.

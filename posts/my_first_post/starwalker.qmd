@@ -9,7 +9,7 @@ Here I'm trying out making a blog post using R and then porting it to the websit
 
 For whatever reason, the .png file will not properly preview in R, but it seems to generate OK on the website, so this is great news!
 
-### Who is the Original Starwalker?
+### Who is the Original                    Starwalker?
 
 ![](/images/OIP.png)
 

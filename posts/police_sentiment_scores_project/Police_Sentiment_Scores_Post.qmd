@@ -1,0 +1,28 @@
+---
+title: "Police Sentiment Scores | City of Chicago Dataset Project"
+author: "Briggy12"
+date: "August 7th, 2025"
+categories: [data_science,general]
+---
+
+## My Project
+
+I accessed the database from [data.gov](ttps://catalog.data.gov/dataset/police-sentiment-scores "Links to data.gov's webpage featuring the dataset used for this project") ([https://catalog.data.gov/dataset/police-sentiment-scores](ttps://catalog.data.gov/dataset/police-sentiment-scores)) which was originally sourced from [here](ttps://data.cityofchicago.org/Public-Safety/Police-Sentiment-Scores/28me-84fj/about_data "The original posting of the dataset "Police Sentiment Scores" for Chicago.") ([https://data.cityofchicago.org/Public-Safety/Police-Sentiment-Scores/28me-84fj/about_data](ttps://data.cityofchicago.org/Public-Safety/Police-Sentiment-Scores/28me-84fj/about_data)).
+
+### yea
+
+and then here I'll give a description of the project
+
+### Perhaps
+
+here I can elaborate on what kind of dataset I was looking for, my questions/hypothesis, how I intend to model it?
+
+### Then the actual nitty-gritty.
+
+So here I'll give a breakdown of my first question and my process for going about answering it. Underneath, probably I will caption the code for accessibility and to have a running record of what I did. It also makes it more accessible.
+
+Ideally, I'd like 2-3 major questions and I'll answer them all here in a similar format under this header.
+
+### Maybe then the closer/conclusion?
+
+I want to check back with my previous workshops that involved EDA and see what the format was there to make this more professional and mirror the academia process for it. It makes it more accessible and preps me for whatever's to come in the future that does this.
