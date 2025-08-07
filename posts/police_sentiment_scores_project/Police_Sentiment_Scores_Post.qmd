@@ -9,9 +9,11 @@ categories: [data_science,general]
 
 Quick Links:
 
--   [data.gov](ttps://catalog.data.gov/dataset/police-sentiment-scores "Links to data.gov's webpage featuring the dataset used for this project") page ([https://catalog.data.gov/dataset/police-sentiment-scores](ttps://catalog.data.gov/dataset/police-sentiment-scores))
+-   [data.gov](ttps://catalog.data.gov/dataset/police-sentiment-scores "Links to data.gov's webpage featuring the dataset used for this project") page (<https://catalog.data.gov/dataset/police-sentiment-scores>)
 
--   original source page [here](ttps://data.cityofchicago.org/Public-Safety/Police-Sentiment-Scores/28me-84fj/about_data "The original posting of the dataset "Police Sentiment Scores" for Chicago.") ([https://data.cityofchicago.org/Public-Safety/Police-Sentiment-Scores/28me-84fj/about_data](ttps://data.cityofchicago.org/Public-Safety/Police-Sentiment-Scores/28me-84fj/about_data)).
+-   original source page [here](ttps://data.cityofchicago.org/Public-Safety/Police-Sentiment-Scores/28me-84fj/about_data "The original posting of the dataset "Police Sentiment Scores" for Chicago.") (<https://data.cityofchicago.org/Public-Safety/Police-Sentiment-Scores/28me-84fj/about_data>).
+
+-   [Chicago Police Department's Sentiment Dashboard](https://www.chicagopolice.org/statistics-data/data-dashboards/sentiment-dashboard/) (<https://www.chicagopolice.org/statistics-data/data-dashboards/sentiment-dashboard/>)
 
 ### yea
 
@@ -37,7 +39,20 @@ library(ggplot2)
 
 PSS <- read.csv("Police_Sentiment_Scores.csv")
 
-ggplot(data = PSS, aes(x=T_SEX_MALE)) + geom_histogram()
+#lets make a general count of what participants we have?
+
+
+# vv for these down here: change "N/A" to something in AREA and choose a different  color palette
+ggplot(data = PSS, aes(x=T_SEX_MALE, color=AREA, fill=AREA)) + geom_bar(position="fill")
+ggplot(data = PSS, aes(x=T_SEX_FEMALE, color=AREA, fill=AREA)) + geom_bar(position="fill")
+
+# ehhh this one kinda sucks because they're independant variables
+ggplot(data = PSS, aes(x=S_RACE_WHITE, y=AREA, color=AREA, fill=AREA)) + geom_point(size=.5, alpha=.5, position="jitter")
+
+ggplot(data = PSS, aes(x=S_RACE_WHITE, color=AREA, fill=AREA)) + geom_density() + facet_wrap(~AREA)
+
+
+
 ```
 
 ### Maybe then the closer/conclusion?
