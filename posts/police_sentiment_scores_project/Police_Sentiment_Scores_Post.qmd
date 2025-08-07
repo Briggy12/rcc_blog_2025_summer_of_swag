@@ -68,6 +68,36 @@ In the dataset, there's 9 categorizations of the reported area (each of these ar
 #| fig-height: 6
 
 library(ggridges)
+
+#change label names vv
+#prettier_labels_PSS <- PSS |>
+  mutate(
+    Student_Athlete_Code_Better = case_when(
+      Student_Athlete_Code == TRUE ~ "Student Athlete", 
+      Student_Athlete_Code == FALSE ~ "Non-Student Athlete"
+    )
+  )
+
+ggplot(
+  data = PSS,
+  mapping = aes(y = AREA)
+) + ggridges::geom_density_ridges(
+  mapping = aes(x = S_RACE_WHITE),
+  color = "red", fill="red", alpha = 0.3
+) + ggridges::geom_density_ridges(
+  mapping = aes(x = S_RACE_AFRICAN_AMERICAN),
+  color = "blue", fill="blue", alpha = 0.3
+) + labs(
+    title = "Trust",
+    subtitle = "White vs Black population",
+    x = "Trust Level (1-100)",
+    y = "Area",
+    )
+
+ggplot(data = PSS, aes(x=S_RACE_WHITE, color=AREA, fill=AREA)) + geom_density(alpha=.75) + facet_wrap(~AREA)
+```
+
+```{r}
 ggplot(
   data = PSS,
   mapping = aes(y = AREA)
@@ -81,8 +111,6 @@ ggplot(
   mapping = aes(x = S_RACE_AFRICAN_AMERICAN),
   color = "green", alpha = 0.3
 ) + facet_wrap(~AREA)
-
-ggplot(data = PSS, aes(x=S_RACE_WHITE, color=AREA, fill=AREA)) + geom_density(alpha=.75) + facet_wrap(~AREA)
 ```
 
 ### Conclusion
