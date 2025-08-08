@@ -9,34 +9,32 @@ categories: [data_science,general]
 
 Quick Links:
 
--   [data.gov](ttps://catalog.data.gov/dataset/police-sentiment-scores "Links to data.gov's webpage featuring the dataset used for this project") page (<https://catalog.data.gov/dataset/police-sentiment-scores>)
+-   data.gov page: <https://catalog.data.gov/dataset/police-sentiment-scores>
     -   This is where I originally retrieved the data set from.
--   Original posting from the [Chicago Data Portal](https://data.cityofchicago.org/Public-Safety/Police-Sentiment-Scores/28me-84fj/about_data) (<https://data.cityofchicago.org/Public-Safety/Police-Sentiment-Scores/28me-84fj/about_data>)
+-   Original posting from the Chicago Data Portal: <https://data.cityofchicago.org/Public-Safety/Police-Sentiment-Scores/28me-84fj/about_data>
     -   Here's some more information on the data and explanation of variables.
--   Chicago Police Department's [Sentiment Dashboard](https://www.chicagopolice.org/statistics-data/data-dashboards/sentiment-dashboard/) (<https://www.chicagopolice.org/statistics-data/data-dashboards/sentiment-dashboard/>)
+-   Chicago Police Department's Sentiment Dashboard: <https://www.chicagopolice.org/statistics-data/data-dashboards/sentiment-dashboard/>
     -   Here's CPD's report on the data. On the site, they've also posted some breakdowns and graphic models of their own on the same data.
 
 ### Introduction
 
-and then here I'll give a description of the project
+Over the summer, I attended a Title III/MSIEP grant workshop that focused on data science and analytics using R. As part of the workshop, we were asked to find a data set and ask a overarching question that could be solved through modeling the data, using the skills we learned in R.
 
 ### Explanation of Data/Methods
 
-When looking for a dataset, I wanted to dive into something more political and within my interests. I found this dataset on [data.gov](ttps://catalog.data.gov/dataset/police-sentiment-scores "Links to data.gov's webpage featuring the dataset used for this project") ([https://catalog.data.gov/dataset/police-sentiment-scores](ttps://catalog.data.gov/dataset/police-sentiment-scores)) which showed data on the "trust" of participants with the police. The "trust" was a rating of 1-10 from a variety of demographics spanning 22 districts within Chicago.
+When looking for a data set, I wanted to dive into something more political and within my interests. I found [this data set](https://catalog.data.gov/dataset/police-sentiment-scores) on data.gov (<https://catalog.data.gov/dataset/police-sentiment-scores>) which showed data on the participants' trust of the police, their overall personal measurement of their safety (i.e. "how safe do you feel?"), and how much do you feel the police listen to your area and take that feedback into account.
 
-Mention interest and also survey methodology
+Participants were asked to rate these factors on a scale from 1-10. Each question also was tied to the demographics of participants, concerning race, age, sex, education level (as in high school diploma or less, some college, and high ed degree), and income.
 
-### Research Questions
+The survey was broadcasted through advertisements and was self-reporting and optional.
 
--   
+### Research Question
 
--   What area is most trustworthy of CPD?
-
--   f
+My main question was "which race trusts police/CPD the most?" so much of my models focus on that and related breakdowns of the data, but I wrote code to explore some other statistics as well.
 
 ### EDA (Exploratory Data Analysis)
 
-Below, you'll find the code that I ran in R to create models from this data set.
+Below, you'll find the code that I ran in R to create models from this data set. I used the package `ggplot2` to create models of the data set.
 
 ```{r}
 install.packages("ggplot2")
