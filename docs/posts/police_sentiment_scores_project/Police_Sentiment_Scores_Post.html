@@ -199,39 +199,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="my-project">My Project</h2>
 <p>Quick Links:</p>
 <ul>
-<li><a href="ttps://catalog.data.gov/dataset/police-sentiment-scores" title="Links to data.gov's webpage featuring the dataset used for this project">data.gov</a> page (<a href="https://catalog.data.gov/dataset/police-sentiment-scores" class="uri">https://catalog.data.gov/dataset/police-sentiment-scores</a>)
+<li>data.gov page: <a href="https://catalog.data.gov/dataset/police-sentiment-scores" class="uri">https://catalog.data.gov/dataset/police-sentiment-scores</a>
 <ul>
 <li>This is where I originally retrieved the data set from.</li>
 </ul></li>
-<li>Original posting from the <a href="https://data.cityofchicago.org/Public-Safety/Police-Sentiment-Scores/28me-84fj/about_data">Chicago Data Portal</a> (<a href="https://data.cityofchicago.org/Public-Safety/Police-Sentiment-Scores/28me-84fj/about_data" class="uri">https://data.cityofchicago.org/Public-Safety/Police-Sentiment-Scores/28me-84fj/about_data</a>)
+<li>Original posting from the Chicago Data Portal: <a href="https://data.cityofchicago.org/Public-Safety/Police-Sentiment-Scores/28me-84fj/about_data" class="uri">https://data.cityofchicago.org/Public-Safety/Police-Sentiment-Scores/28me-84fj/about_data</a>
 <ul>
 <li>Here’s some more information on the data and explanation of variables.</li>
 </ul></li>
-<li>Chicago Police Department’s <a href="https://www.chicagopolice.org/statistics-data/data-dashboards/sentiment-dashboard/">Sentiment Dashboard</a> (<a href="https://www.chicagopolice.org/statistics-data/data-dashboards/sentiment-dashboard/" class="uri">https://www.chicagopolice.org/statistics-data/data-dashboards/sentiment-dashboard/</a>)
+<li>Chicago Police Department’s Sentiment Dashboard: <a href="https://www.chicagopolice.org/statistics-data/data-dashboards/sentiment-dashboard/" class="uri">https://www.chicagopolice.org/statistics-data/data-dashboards/sentiment-dashboard/</a>
 <ul>
 <li>Here’s CPD’s report on the data. On the site, they’ve also posted some breakdowns and graphic models of their own on the same data.</li>
 </ul></li>
 </ul>
 <section id="introduction" class="level3">
 <h3 class="anchored" data-anchor-id="introduction">Introduction</h3>
-<p>and then here I’ll give a description of the project</p>
+<p>Over the summer, I attended a Title III/MSIEP grant workshop that focused on data science and analytics using R. As part of the workshop, we were asked to find a data set and ask a overarching question that could be solved through modeling the data, using the skills we learned in R.</p>
 </section>
 <section id="explanation-of-datamethods" class="level3">
 <h3 class="anchored" data-anchor-id="explanation-of-datamethods">Explanation of Data/Methods</h3>
-<p>When looking for a dataset, I wanted to dive into something more political and within my interests. I found this dataset on <a href="ttps://catalog.data.gov/dataset/police-sentiment-scores" title="Links to data.gov's webpage featuring the dataset used for this project">data.gov</a> (<a href="ttps://catalog.data.gov/dataset/police-sentiment-scores">https://catalog.data.gov/dataset/police-sentiment-scores</a>) which showed data on the “trust” of participants with the police. The “trust” was a rating of 1-10 from a variety of demographics spanning 22 districts within Chicago.</p>
-<p>Mention interest and also survey methodology</p>
+<p>When looking for a data set, I wanted to dive into something more political and within my interests. I found <a href="https://catalog.data.gov/dataset/police-sentiment-scores">this data set</a> on data.gov (<a href="https://catalog.data.gov/dataset/police-sentiment-scores" class="uri">https://catalog.data.gov/dataset/police-sentiment-scores</a>) which showed data on the participants’ trust of the police, their overall personal measurement of their safety (i.e.&nbsp;“how safe do you feel?”), and how much do you feel the police listen to your area and take that feedback into account.</p>
+<p>Participants were asked to rate these factors on a scale from 1-10. Each question also was tied to the demographics of participants, concerning race, age, sex, education level (as in high school diploma or less, some college, and high ed degree), and income.</p>
+<p>The survey was broadcasted through advertisements and was self-reporting and optional.</p>
 </section>
-<section id="research-questions" class="level3">
-<h3 class="anchored" data-anchor-id="research-questions">Research Questions</h3>
-<ul>
-<li></li>
-<li><p>What area is most trustworthy of CPD?</p></li>
-<li><p>f</p></li>
-</ul>
+<section id="research-question" class="level3">
+<h3 class="anchored" data-anchor-id="research-question">Research Question</h3>
+<p>My main question was “which race trusts police/CPD the most?” so much of my models focus on that and related breakdowns of the data, but I wrote code to explore some other statistics as well.</p>
 </section>
 <section id="eda-exploratory-data-analysis" class="level3">
 <h3 class="anchored" data-anchor-id="eda-exploratory-data-analysis">EDA (Exploratory Data Analysis)</h3>
-<p>Below, you’ll find the code that I ran in R to create models from this data set.</p>
+<p>Below, you’ll find the code that I ran in R to create models from this data set. I used the package <code>ggplot2</code> to create models of the data set.</p>
+<p>This first block here is breaking up each rating by race. The races we have to pick from on the data set are African-American (Black), Asian-American, Hispanic, and White. In these graphs, I ran the same code to see how much each race trusts the police as reported in the survey.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"ggplot2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -242,77 +240,81 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>PSS <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"Police_Sentiment_Scores.csv"</span>)</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">#lets make a general count of what participants we have?</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># vv for these down here: change "N/A" to something in AREA and choose a different  color palette</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> PSS, <span class="fu">aes</span>(<span class="at">x=</span>T_SEX_MALE, <span class="at">color=</span>AREA, <span class="at">fill=</span>AREA)) <span class="sc">+</span> <span class="fu">geom_bar</span>(<span class="at">position=</span><span class="st">"fill"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">data=</span>PSS, <span class="fu">aes</span>(<span class="at">x=</span>T_RACE_AFRICAN_AMERICAN)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span> <span class="fu">geom_density</span>(</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">color=</span><span class="st">"blue"</span>, <span class="at">fill=</span><span class="st">"blue"</span>, <span class="at">alpha=</span>.<span class="dv">5</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Police_Sentiment_Scores_Post_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="Police_Sentiment_Scores_Post_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="288"></p>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> PSS, <span class="fu">aes</span>(<span class="at">x=</span>T_SEX_FEMALE, <span class="at">color=</span>AREA, <span class="at">fill=</span>AREA)) <span class="sc">+</span> <span class="fu">geom_bar</span>(<span class="at">position=</span><span class="st">"fill"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">data=</span>PSS, <span class="fu">aes</span>(<span class="at">x=</span>T_RACE_ASIAN_AMERICAN)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span> <span class="fu">geom_density</span>(</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">color=</span><span class="st">"green"</span>, <span class="at">fill=</span><span class="st">"green"</span>, <span class="at">alpha=</span>.<span class="dv">5</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Police_Sentiment_Scores_Post_files/figure-html/unnamed-chunk-1-2.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="Police_Sentiment_Scores_Post_files/figure-html/unnamed-chunk-1-2.png" class="img-fluid figure-img" width="288"></p>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ehhh this one kinda sucks because they're independant variables</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> PSS, <span class="fu">aes</span>(<span class="at">x=</span>S_RACE_WHITE, <span class="at">y=</span>AREA, <span class="at">color=</span>AREA, <span class="at">fill=</span>AREA)) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">size=</span>.<span class="dv">5</span>, <span class="at">alpha=</span>.<span class="dv">5</span>, <span class="at">position=</span><span class="st">"jitter"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">data=</span>PSS, <span class="fu">aes</span>(<span class="at">x=</span>T_RACE_HISPANIC)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span> <span class="fu">geom_density</span>(</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">color=</span><span class="st">"yellow"</span>, <span class="at">fill=</span><span class="st">"yellow"</span>, <span class="at">alpha=</span>.<span class="dv">5</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Police_Sentiment_Scores_Post_files/figure-html/unnamed-chunk-1-3.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="Police_Sentiment_Scores_Post_files/figure-html/unnamed-chunk-1-3.png" class="img-fluid figure-img" width="288"></p>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="do">## maybe if I want to make a "map" of where people live, try sorting a count-based graph with each of the race categorizations? Therefore omiting their values and just counting the occurances. Could probably make a new variable using the count() function</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">#use tidyverse gather()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">data=</span>PSS, <span class="fu">aes</span>(<span class="at">x=</span>T_RACE_WHITE)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span> <span class="fu">geom_density</span>(</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">color=</span><span class="st">"red"</span>, <span class="at">fill=</span><span class="st">"red"</span>, <span class="at">alpha=</span>.<span class="dv">5</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Police_Sentiment_Scores_Post_files/figure-html/unnamed-chunk-1-4.png" class="img-fluid figure-img" width="288"></p>
+</figure>
 </div>
-<p>So let’s check by area.</p>
-<p>In the dataset, there’s 9 categorizations of the reported area (each of these are better explained in <a href="https://www.chicagopolice.org/statistics-data/data-dashboards/sentiment-dashboard/">CPD’s Sentiment Dashboard</a>):</p>
-<ol type="1">
-<li><strong>“N/A”</strong>, or no area reported</li>
-<li><strong>“Area 1”</strong>, meaning McKinley Park, Chicago Lawn, Ashburn, Clearing, Woodlawn, South Shore, Oakland, etc.</li>
-</ol>
+</div>
+</div>
+<p>On their own though, these tell a lot about the trust level broken down by race. I’m interest in the comparison, though. Below are two graphs; one of all of the trust values by race combined and the other is a comparison between the Black trust values versus the White trust values.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggridges)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">#change label names vv add to density below there</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">#prettier_labels_PSS &lt;- PSS |&gt;</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co">#  mutate(</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co">#    Student_Athlete_Code_Better = case_when(</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co">#      Student_Athlete_Code == TRUE ~ "Student Athlete", </span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co">#      Student_Athlete_Code == FALSE ~ "Non-Student Athlete"</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co">#    )</span></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co">#  )</span></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> PSS,</span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">y =</span> AREA)</span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span> ggridges<span class="sc">::</span><span class="fu">geom_density_ridges</span>(</span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> S_RACE_WHITE),</span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">fill=</span><span class="st">"red"</span>, <span class="at">alpha =</span> <span class="fl">0.3</span></span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span> ggridges<span class="sc">::</span><span class="fu">geom_density_ridges</span>(</span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> S_RACE_AFRICAN_AMERICAN),</span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">fill=</span><span class="st">"blue"</span>, <span class="at">alpha =</span> <span class="fl">0.3</span></span>
-<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span> <span class="fu">labs</span>(</span>
-<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Trust Level for Police"</span>,</span>
-<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Black vs White population"</span>,</span>
-<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Trust Level (1-100)"</span>,</span>
-<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Area"</span>,</span>
-<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> PSS,</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">y =</span> AREA)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span> ggridges<span class="sc">::</span><span class="fu">geom_density_ridges</span>(</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> S_RACE_WHITE),</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">fill=</span><span class="st">"red"</span>, <span class="at">alpha =</span> <span class="fl">0.3</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span> ggridges<span class="sc">::</span><span class="fu">geom_density_ridges</span>(</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> S_RACE_AFRICAN_AMERICAN),</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">fill=</span><span class="st">"blue"</span>, <span class="at">alpha =</span> <span class="fl">0.3</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span> ggridges<span class="sc">::</span><span class="fu">geom_density_ridges</span>(</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> S_RACE_AFRICAN_AMERICAN),</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">color =</span> <span class="st">"green"</span>, <span class="at">fill=</span><span class="st">"green"</span>, <span class="at">alpha =</span> <span class="fl">0.3</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span> <span class="fu">labs</span>(</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Trust Level for Police"</span>,</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Trust level based on race demographic"</span>,</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Trust Level (1-100)"</span>,</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Area"</span>,</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Picking joint bandwidth of 1.51</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Picking joint bandwidth of 1.66</code></pre>
+<pre><code>Picking joint bandwidth of 1.66
+Picking joint bandwidth of 1.66</code></pre>
 </div>
 <div class="cell-output-display">
 <div>
@@ -321,7 +323,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> PSS, <span class="fu">aes</span>(<span class="at">x=</span>S_RACE_WHITE, <span class="at">color=</span>AREA, <span class="at">fill=</span>AREA)) <span class="sc">+</span> <span class="fu">geom_density</span>(<span class="at">alpha=</span>.<span class="dv">75</span>) <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span>AREA)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#lets make a general count of what participants we have?</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># vv for these down here: change "N/A" to something in AREA and choose a different  color palette</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> PSS, <span class="fu">aes</span>(<span class="at">x=</span>T_SEX_MALE, <span class="at">color=</span>AREA, <span class="at">fill=</span>AREA)) <span class="sc">+</span> <span class="fu">geom_bar</span>(<span class="at">position=</span><span class="st">"fill"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -329,21 +335,63 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </figure>
 </div>
 </div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> PSS, <span class="fu">aes</span>(<span class="at">x=</span>T_SEX_FEMALE, <span class="at">color=</span>AREA, <span class="at">fill=</span>AREA)) <span class="sc">+</span> <span class="fu">geom_bar</span>(<span class="at">position=</span><span class="st">"fill"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Police_Sentiment_Scores_Post_files/figure-html/unnamed-chunk-2-3.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ehhh this one kinda sucks because they're independant variables</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> PSS, <span class="fu">aes</span>(<span class="at">x=</span>S_RACE_WHITE, <span class="at">y=</span>AREA, <span class="at">color=</span>AREA, <span class="at">fill=</span>AREA)) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">size=</span>.<span class="dv">5</span>, <span class="at">alpha=</span>.<span class="dv">5</span>, <span class="at">position=</span><span class="st">"jitter"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Police_Sentiment_Scores_Post_files/figure-html/unnamed-chunk-2-4.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="do">## maybe if I want to make a "map" of where people live, try sorting a count-based graph with each of the race categorizations? Therefore omiting their values and just counting the occurances. Could probably make a new variable using the count() function</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co">#use tidyverse gather()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> PSS,</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">y =</span> AREA)</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span> ggridges<span class="sc">::</span><span class="fu">geom_density_ridges</span>(</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> S_RACE_WHITE),</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">alpha =</span> <span class="fl">0.3</span></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span> ggridges<span class="sc">::</span><span class="fu">geom_density_ridges</span>(</span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> S_RACE_HISPANIC),</span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">alpha =</span> <span class="fl">0.3</span></span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span> ggridges<span class="sc">::</span><span class="fu">geom_density_ridges</span>(</span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> S_RACE_AFRICAN_AMERICAN),</span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">color =</span> <span class="st">"green"</span>, <span class="at">alpha =</span> <span class="fl">0.3</span></span>
-<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span>AREA)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggridges)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co">#change label names vv add to density below there</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co">#prettier_labels_PSS &lt;- PSS |&gt;</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="co">#  mutate(</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="co">#    Student_Athlete_Code_Better = case_when(</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="co">#      Student_Athlete_Code == TRUE ~ "Student Athlete", </span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="co">#      Student_Athlete_Code == FALSE ~ "Non-Student Athlete"</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="co">#    )</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="co">#  )</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> PSS, <span class="fu">aes</span>(<span class="at">x=</span>S_RACE_WHITE, <span class="at">color=</span>AREA, <span class="at">fill=</span>AREA)) <span class="sc">+</span> <span class="fu">geom_density</span>(<span class="at">alpha=</span>.<span class="dv">75</span>) <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span>AREA)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Police_Sentiment_Scores_Post_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> PSS,</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">y =</span> AREA)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span> ggridges<span class="sc">::</span><span class="fu">geom_density_ridges</span>(</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> S_RACE_WHITE),</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">alpha =</span> <span class="fl">0.3</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span> ggridges<span class="sc">::</span><span class="fu">geom_density_ridges</span>(</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> S_RACE_HISPANIC),</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">alpha =</span> <span class="fl">0.3</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span> ggridges<span class="sc">::</span><span class="fu">geom_density_ridges</span>(</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> S_RACE_AFRICAN_AMERICAN),</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">color =</span> <span class="st">"green"</span>, <span class="at">alpha =</span> <span class="fl">0.3</span></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span>AREA)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Picking joint bandwidth of 1.32</code></pre>
 </div>
@@ -428,7 +476,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Police_Sentiment_Scores_Post_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="Police_Sentiment_Scores_Post_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>

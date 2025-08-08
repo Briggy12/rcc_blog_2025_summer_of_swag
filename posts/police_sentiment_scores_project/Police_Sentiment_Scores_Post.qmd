@@ -36,11 +36,69 @@ My main question was "which race trusts police/CPD the most?" so much of my mode
 
 Below, you'll find the code that I ran in R to create models from this data set. I used the package `ggplot2` to create models of the data set.
 
+This first block here is breaking up each rating by race. The races we have to pick from on the data set are African-American (Black), Asian-American, Hispanic, and White. In these graphs, I ran the same code to see how much each race trusts the police as reported in the survey.
+
 ```{r}
+#| fig-height: 3
+#| fig-width: 3
 install.packages("ggplot2")
 library(ggplot2)
 
 PSS <- read.csv("Police_Sentiment_Scores.csv")
+
+ggplot(
+  data=PSS, aes(x=T_RACE_AFRICAN_AMERICAN)
+  ) + geom_density(
+    color="blue", fill="blue", alpha=.5
+    )
+
+ggplot(
+  data=PSS, aes(x=T_RACE_ASIAN_AMERICAN)
+  ) + geom_density(
+    color="green", fill="green", alpha=.5
+    )
+
+ggplot(
+  data=PSS, aes(x=T_RACE_HISPANIC)
+  ) + geom_density(
+    color="yellow", fill="yellow", alpha=.5
+    )
+
+ggplot(
+  data=PSS, aes(x=T_RACE_WHITE)
+  ) + geom_density(
+    color="red", fill="red", alpha=.5
+    )
+```
+
+On their own though, these tell a lot about the trust level broken down by race. I'm interest in the comparison, though. Below are two graphs; one of all of the trust values by race combined and the other is a comparison between the Black trust values versus the White trust values.
+
+```{r}
+
+
+
+ggplot(
+  data = PSS,
+  mapping = aes(y = AREA)
+) + ggridges::geom_density_ridges(
+  mapping = aes(x = S_RACE_WHITE),
+  color = "red", fill="red", alpha = 0.3
+) + ggridges::geom_density_ridges(
+  mapping = aes(x = S_RACE_AFRICAN_AMERICAN),
+  color = "blue", fill="blue", alpha = 0.3
+) + ggridges::geom_density_ridges(
+  mapping = aes(x = S_RACE_AFRICAN_AMERICAN),
+  color = "green", fill="green", alpha = 0.3
+) + labs(
+    title = "Trust Level for Police",
+    subtitle = "Trust level based on race demographic",
+    x = "Trust Level (1-100)",
+    y = "Area",
+    )
+
+
+
+
 
 #lets make a general count of what participants we have?
 
@@ -59,13 +117,6 @@ ggplot(data = PSS, aes(x=S_RACE_WHITE, y=AREA, color=AREA, fill=AREA)) + geom_po
 
 ```
 
-So let's check by area.
-
-In the dataset, there's 9 categorizations of the reported area (each of these are better explained in [CPD's Sentiment Dashboard](https://www.chicagopolice.org/statistics-data/data-dashboards/sentiment-dashboard/)):
-
-1.  **"N/A"**, or no area reported
-2.  **"Area 1"**, meaning McKinley Park, Chicago Lawn, Ashburn, Clearing, Woodlawn, South Shore, Oakland, etc.
-
 ```{r}
 #| fig-height: 6
 
@@ -80,21 +131,6 @@ library(ggridges)
 #    )
 #  )
 
-ggplot(
-  data = PSS,
-  mapping = aes(y = AREA)
-) + ggridges::geom_density_ridges(
-  mapping = aes(x = S_RACE_WHITE),
-  color = "red", fill="red", alpha = 0.3
-) + ggridges::geom_density_ridges(
-  mapping = aes(x = S_RACE_AFRICAN_AMERICAN),
-  color = "blue", fill="blue", alpha = 0.3
-) + labs(
-    title = "Trust Level for Police",
-    subtitle = "Black vs White population",
-    x = "Trust Level (1-100)",
-    y = "Area",
-    )
 
 ggplot(data = PSS, aes(x=S_RACE_WHITE, color=AREA, fill=AREA)) + geom_density(alpha=.75) + facet_wrap(~AREA)
 ```
