@@ -1,8 +1,8 @@
 ---
 title: "Police Sentiment Scores | City of Chicago Dataset Project"
 author: "Briggy12"
-date: "2025.8.7"
-categories: [data_science,general]
+date: "2025.8.9"
+categories: [Dominican Workshops,R]
 ---
 
 ## My Project

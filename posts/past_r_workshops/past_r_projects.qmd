@@ -1,0 +1,16 @@
+---
+title: "Past R Workshops"
+author: "Briggy12"
+date: "2025.8.8"
+categories: [Dominican Workshops,R]
+---
+
+In 2023, Dominican University started their first round of Title III/MSIEP grant workshops over the summer. This page is focusing on the workshop for R and data analytics led by Dr. Md Hasan Zamir.
+
+### R and Data Analytics Summer Workshop 2023 at Dominican University
+
+Some quick links:
+
+-   Link to my first R portfolio (specifically for this workshop): [https://sites.google.com/d/1yZ5LYxleSToBAxsJI3cIypHxW5Fnht0B/p/1q7VDj60fgiyVrIlbOmPPyx9jKMWlARMB/edit](https://sites.google.com/view/brummeleportfolio/home)
+-   Link to the resources page: <https://mydomedu.sharepoint.com/sites/rworkshop2023?CT=1754677639264&OR=OWA-NT-Mail&CID=e9a8e58e-3dc5-14d1-c1a8-7e81ce9f0d89&e=1%3Ab170345d058d4a32996c3b289fa13c07>
+    -   This site is only accessible through Dominican University's SharePoint network

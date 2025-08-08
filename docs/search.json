@@ -25,7 +25,7 @@
     "href": "index.html",
     "title": "Project Posts",
     "section": "",
-    "text": "Welcome to my R Workshop portfolio!\nThis is a website I edited in R to display my work from this summer. Below are some projects that I worked on using R. The main post is of my final project, but there’s some other posts where I’m just practicing and playing around to get a feel for R as a programming language.\nFeel free to use the “Categories” tab on the right hand side to navigate these posts better.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPolice Sentiment Scores | City of Chicago Dataset Project\n\n\n\ndata_science\n\ngeneral\n\n\n\n\n\n\n\n\n\nAug 7, 2025\n\n\nBriggy12\n\n\n\n\n\n\n\n\n\n\n\n\nThe original Starwalker (test)\n\n\n\ndata_science\n\ngeneral\n\n\n\n\n\n\n\n\n\nAug 6, 2025\n\n\nBriggy12\n\n\n\n\n\n\n\n\n\n\n\n\nExample assignment\n\n\n\ngoals\n\ngeneral\n\n\n\n\n\n\n\n\n\nOct 21, 2022\n\n\nMatt Crump\n\n\n\n\n\nNo matching items"
+    "text": "Welcome to my R Workshop portfolio!\nThis is a website I edited in R to display my work from this summer. Below are some projects that I worked on using R. The main post is of my final project, but there’s some other posts where I’m just practicing and playing around to get a feel for R as a programming language.\nFeel free to use the “Categories” tab on the right hand side to navigate these posts better.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPolice Sentiment Scores | City of Chicago Dataset Project\n\n\n\nDominican Workshops\n\nR\n\n\n\n\n\n\n\n\n\nAug 9, 2025\n\n\nBriggy12\n\n\n\n\n\n\n\n\n\n\n\n\nPast R Workshops\n\n\n\nDominican Workshops\n\nR\n\n\n\n\n\n\n\n\n\nAug 8, 2025\n\n\nBriggy12\n\n\n\n\n\n\n\n\n\n\n\n\nThe original Starwalker (test)\n\n\n\ndata_science\n\ngeneral\n\n\n\n\n\n\n\n\n\nAug 6, 2025\n\n\nBriggy12\n\n\n\n\n\n\n\n\n\n\n\n\nExample assignment\n\n\n\ngoals\n\ngeneral\n\n\n\n\n\n\n\n\n\nOct 21, 2022\n\n\nMatt Crump\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/Example_assignment/index.html",
@@ -164,6 +164,20 @@
     "objectID": "posts/Example_assignment/Example_assignment.html#my-mental-imagery",
     "href": "posts/Example_assignment/Example_assignment.html#my-mental-imagery",
     "title": "Example assignment",
+    "section": "My mental imagery",
+    "text": "My mental imagery\nMy mental imagery is like…"
+  },
+  {
+    "objectID": "posts/past_r_workshops/past_r_projects.html",
+    "href": "posts/past_r_workshops/past_r_projects.html",
+    "title": "Past R Workshops",
+    "section": "",
+    "text": "In 2023, Dominican University started their first round of Title III/MSIEP grant workshops over the summer. This page is focusing on the workshop for R and data analytics led by Dr. Md Hasan Zamir.\n\nR and Data Analytics Summer Workshop 2023 at Dominican University\nSome quick links:\n\nLink to my first R portfolio (specifically for this workshop): https://sites.google.com/d/1yZ5LYxleSToBAxsJI3cIypHxW5Fnht0B/p/1q7VDj60fgiyVrIlbOmPPyx9jKMWlARMB/edit\nLink to the resources page: https://mydomedu.sharepoint.com/sites/rworkshop2023?CT=1754677639264&OR=OWA-NT-Mail&CID=e9a8e58e-3dc5-14d1-c1a8-7e81ce9f0d89&e=1%3Ab170345d058d4a32996c3b289fa13c07\n\nThis site is only accessible through Dominican University’s SharePoint network"
+  },
+  {
+    "objectID": "posts/past_r_workshops/past_r_projects.html#my-mental-imagery",
+    "href": "posts/past_r_workshops/past_r_projects.html#my-mental-imagery",
+    "title": "Past R Workshops",
     "section": "My mental imagery",
     "text": "My mental imagery\nMy mental imagery is like…"
   }
