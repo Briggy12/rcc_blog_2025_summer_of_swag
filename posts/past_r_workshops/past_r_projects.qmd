@@ -1,5 +1,5 @@
 ---
-title: "Past R Workshops"
+title: "Past R Workshop"
 author: "Briggy12"
 date: "2025.8.8"
 categories: [Dominican Workshops,R]
